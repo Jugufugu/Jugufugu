@@ -3,7 +3,7 @@
 #include<signal.h>
 #include<unistd.h>
 #include<stdlib.h>
-
+#include "signalhandler.h"
 using namespace std;
 void sig_handler(int signum)
 {
@@ -12,11 +12,13 @@ exit(0);
 };
 int main()
 {
-alarm(5);
-signal(SIGALRM,sig_handler);
-for(;;)
-sleep(1);
-std::cout<<"Hello World";
+//signalhandler ss;
+//ss.execute();
+//alarm(5);
+signal(SIGINT,sig_handler);
+signalhandler ss;
+ss.execute();
+
 return 0;
 }
 
